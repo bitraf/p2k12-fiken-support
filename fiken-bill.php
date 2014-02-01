@@ -68,7 +68,7 @@ while ($member = pg_fetch_assoc($members_res))
   {
     $last_date_billed = $billingInfo['last_date_billed'];
     if($debug > 0) echo "The last date billed is {$last_date_billed}\n";
-    if (strtotime($last_date_billed) < strtotime('-10 minutes'))
+    if (strtotime($last_date_billed) < strtotime('-30 days'))
     {
       $updateLastDateBilled = "UPDATE fiken_faktura SET last_date_billed='NOW()' WHERE account='$account'"; 
       if (pg_query($updateLastDateBilled) == FALSE)
