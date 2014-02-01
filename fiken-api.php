@@ -10,12 +10,16 @@ function getFikenProdCode($price)
     return "";
   else if ($price == 1000 or $price == "1000")
     return "";
+  else if ($price == 100 or $price == "100")
+    return "";
+  else if ($price == 200 or $price == "200")
+    return "";
 }
 
 
 function generatePayLoad($user, $invoiceDate)
 {
-  $name = $user['full_name'];
+  $name = utf8_encode($user['full_name']);
   $email = $user['email'];
   $prodCode = $user['prodCode'];
   $recipientNo = $user['fiken_kundenummer'];

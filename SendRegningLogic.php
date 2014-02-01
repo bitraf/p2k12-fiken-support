@@ -1,4 +1,4 @@
-<?php
+<?
 /*
         Copyright (C) 2009 Pal Orby, SendRegning AS. <http://www.sendregning.no/>
 
@@ -17,7 +17,6 @@
  */
 require ('http.php');
 require("sasl.php");
-include('secret.php');
 
 class SendRegningLogic {
 
