@@ -19,7 +19,7 @@ function getFikenProdCode($price)
 
 function generatePayLoad($user, $invoiceDate)
 {
-  $name = utf8_encode($user['full_name']);
+  $name = utf8_decode($user['full_name']);
   $email = $user['email'];
   $prodCode = $user['prodCode'];
   $recipientNo = $user['fiken_kundenummer'];
