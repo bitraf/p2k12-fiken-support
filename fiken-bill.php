@@ -4,6 +4,7 @@
 
 system("mkdir -p ./logs");
 
+require ("email.php");
 include ("SendRegningLogic.php");
 require ("fiken-api.php");
 
@@ -109,7 +110,6 @@ while ($member = pg_fetch_assoc($members_res))
 
   if ($error != "[STATUS]")
   {
-    //TODO: SEND email
     pg_query('ROLLBACK');
     $globalLog .= "\n{$error}";
   }
@@ -124,5 +124,9 @@ while ($member = pg_fetch_assoc($members_res))
 }
 
 if ($globalLog != "")
-    error_log($globalLog, 3, "./logs/fiken-{$today}.log");
-
+{
+  error_log($globalLog, 3, "./logs/fiken-{$today}.log");
+  email_for_debug($globalLog);
+}
+else
+  email_for_debug("Something went seriosly wrong you should worry. No logs were created!!!");
