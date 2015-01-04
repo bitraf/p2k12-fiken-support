@@ -11,7 +11,7 @@ require ("fiken-api.php");
 setlocale (LC_ALL, 'nb_NO.UTF-8');
 date_default_timezone_set ('Europe/Oslo');
 
-if (false === pg_connect("dbname=p2k12 user=p2k12"))
+if (false === pg_connect("dbname=p2k12 user=p2k12_pos host=bomba.bitraf.no"))
 {
   echo "ERROR: Drats!\n";
 
